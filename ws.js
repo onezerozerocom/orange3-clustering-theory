@@ -98,15 +98,16 @@ STEPS[0].render = () => card('이 앱에서 할 일',
 STEPS[1].concept = '';
 STEPS[1].render = () => {
   const [, hgCard] = splitCards(R0[1]());
-  return wsCard('1. 군집 분석의 개념',
+  return wsCard('[생각 열기]',
+    q('할리갈리 카드 56장은 네 종류의 과일(딸기, 라임, 자두, 바나나) 카드이고, 카드마다 과일이 1~5개 그려져 있다.&nbsp;카드를 여러 무리로 나누려고 할 때, 나눌 수 있는 기준을 두 가지 써 보자.') +
+    ['hg1', 'hg2'].map((k, i) => `<div style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center">${L(CL[i])}${ta(k, 1, `기준 ${i + 1}`)}</div>`).join('') +
+    after('카드 나누어 보기 (기준을 쓴 다음 펼쳐 보세요)', inner(hgCard))) +
+  wsCard('1. 군집 분석의 개념',
     L(`- 군집 분석(Cluster Analysis): 데이터를 비슷한 것끼리 같은 군집으로 묶은 후, 군집 내·군집 간 특징을 분석하는 대표적인 ${bl('s1_a', 5)} 학습 방법`) +
     L(`- 군집 분석 데이터는 정답 또는 ${bl('s1_b', 6)}이 되어 있지 않으므로, 관측값 사이의 ${bl('s1_c', 5)}을 파악하여 군집을 만든다.`) +
     L(`- 정답값이 있는 데이터로 학습하는 ${bl('s1_d', 5)}는 지도 학습에 속한다.`) +
     q('다음 상황에 알맞은 방법에 ○표 해 보자.') +
-    tbl(['상황', '분류<br>(지도 학습)', '군집 분석<br>(비지도 학습)'], SIT_T.map((t, i) => [`${CL[i]} ${t}`, ox('sit' + (i + 1), '분류', `${CL[i]} 분류`), ox('sit' + (i + 1), '군집', `${CL[i]} 군집 분석`)]), { cls: 'ox' }) +
-    q('[생각 열기] 할리갈리 카드 56장은 네 종류의 과일(딸기, 라임, 자두, 바나나) 카드이고, 카드마다 과일이 1~5개 그려져 있다.&nbsp;카드를 여러 무리로 나누려고 할 때, 나눌 수 있는 기준을 두 가지 써 보자.') +
-    ['hg1', 'hg2'].map((k, i) => `<div style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center">${L(CL[i])}${ta(k, 1, `기준 ${i + 1}`)}</div>`).join('') +
-    after('카드 나누어 보기 (기준을 쓴 다음 펼쳐 보세요)', inner(hgCard)));
+    tbl(['상황', '분류<br>(지도 학습)', '군집 분석<br>(비지도 학습)'], SIT_T.map((t, i) => [`${CL[i]} ${t}`, ox('sit' + (i + 1), '분류', `${CL[i]} 분류`), ox('sit' + (i + 1), '군집', `${CL[i]} 군집 분석`)]), { cls: 'ox' }));
 };
 
 /* ---------- 2. 군집화하기 ---------- */
